@@ -21,7 +21,7 @@
 		<SANSID></SANSID>
 		<MIMEField>
 			<Name>x-fixlet-modification-time</Name>
-			<Value>Mon, 28 Sep 2020 13:13:21 +0000</Value>
+			<Value>Mon, 28 Sep 2020 13:54:37 +0000</Value>
 		</MIMEField>
 		<Domain>BESC</Domain>
 		<DefaultAction ID="Action1">
@@ -76,7 +76,7 @@ if {parameter "__ExitCode04" != "0"}
 endif
 
 // Inspect crontab tmp file for watchdog keywords & insert record if necessary
-if {if (exists file "/var/opt/BESTools/crontab.tmp") then (if (not exists (lines whose (it contains "besrelay_watchdog.sh") of file "/var/opt/BESTools/crontab.tmp" as trimmed string) then (True) else (False)) else (False)}
+if {if (exists file "/var/opt/BESTools/crontab.tmp") then (if (not exists (lines whose (it contains "besclient_watchdog.sh") of file "/var/opt/BESTools/crontab.tmp" as trimmed string)) then (True) else (False)) else (False)}
 	wait sudo su - root -c "echo \"@hourly /var/opt/BESTools/besclient_watchdog.sh\" >> /var/opt/BESTools/crontab.tmp; crontab /var/opt/BESTools/crontab.tmp"
 	parameter "__ExitCode5" = "{if exist exit code of action then exit code of action as string else "995"}"
 	if {parameter "__ExitCode5" != "0"}
