@@ -14,26 +14,26 @@
 		<Category>BigFix, Watchdog, Log, Maintenance</Category>
 		<Source>HCL BigFix Professional Services</Source>
 		<SourceID>casey.cannady@hcl.com</SourceID>
-		<SourceReleaseDate>2020-10-06</SourceReleaseDate>
+		<SourceReleaseDate>2020-10-05</SourceReleaseDate>
 		<SourceSeverity>Low</SourceSeverity>
 		<CVENames></CVENames>
 		<SANSID></SANSID>
 		<MIMEField>
 			<Name>x-fixlet-modification-time</Name>
-			<Value>Tue, 06 Oct 2020 21:33:30 +0000</Value>
+			<Value>Tue, 06 Oct 2020 22:07:50 +0000</Value>
 		</MIMEField>
 		<Domain>BESC</Domain>
 		<DefaultAction ID="Action1">
 			<Description>
 				<PreLink>Click </PreLink>
 				<Link>here</Link>
-				<PostLink> to run the Software Indexer utility.</PostLink>
+				<PostLink> to run this fixlet.</PostLink>
 			</Description>
 			<ActionScript MIMEType="application/x-Fixlet-Windows-Shell"><![CDATA[// *** *************************************************************************** ***
 // *** Title         :: BPS | BES Watchdog | Log Management                        ***
 // *** Author        :: Casey Cannady (casey.cannady@hcl.com)                      ***
 // *** Company       :: HCL Software - BigFix Professional Services                ***
-// *** Date Created  :: 10/06/2020                                                 ***
+// *** Date Created  :: 10/05/2020                                                 ***
 // *** Date Modified :: 10/06/2020                                                 ***
 // *** *************************************************************************** ***
 
@@ -41,13 +41,13 @@
 delete __createfile
 
 // Install logrotate if not already present
-if {exists folder exists folder "/etc/apt"}
+if {exists folder "/etc/apt"}
 	wait sudo su - root -c "apt update && apt install logrotate"
 	parameter "__ExitCode01" = "{if exist exit code of action then exit code of action as string else "999"}"
 	if {parameter "__ExitCode01" != "0"}
 		exit {parameter "__ExitCode01"}
 	endif
-elseif {exists folder exists folder "/etc/yum"}
+elseif {exists folder "/etc/yum"}
 	wait sudo su - root -c "yum update && yum install logrotate"
 	parameter "__ExitCode02" = "{if exist exit code of action then exit code of action as string else "998"}"
 	if {parameter "__ExitCode02" != "0"}
@@ -66,7 +66,7 @@ if {not exists file "/etc/logrotate.d/bes_watchdog.conf"}
     compress
     delaycompress
 }
-	__END
+__END
 
 	// Move logrotate config file to service directory
 	move __createfile "/etc/logrotate.d/bes_watchdog.conf"
