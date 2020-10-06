@@ -21,14 +21,14 @@
 		<SANSID></SANSID>
 		<MIMEField>
 			<Name>x-fixlet-modification-time</Name>
-			<Value>Tue, 06 Oct 2020 20:38:34 +0000</Value>
+			<Value>Tue, 06 Oct 2020 21:42:23 +0000</Value>
 		</MIMEField>
 		<Domain>BESC</Domain>
 		<DefaultAction ID="Action1">
 			<Description>
 				<PreLink>Click </PreLink>
 				<Link>here</Link>
-				<PostLink> to run the Software Indexer utility.</PostLink>
+				<PostLink> to run this fixlet.</PostLink>
 			</Description>
 			<ActionScript MIMEType="application/x-Fixlet-Windows-Shell"><![CDATA[// Prefetch the current version of the BESClient watchdog Bash script
 prefetch besclient_watchdog.sh sha1:8788a6d9038a791f672da7409df59b1d21142c76 size:5782 https://raw.githubusercontent.com/cmcannady/bigfix/master/besclient_watchdog.sh sha256:1a5c51c7d93889a7156ac443c1a35a5eb31a498e1b762da48dcd4ffcb5a46529
