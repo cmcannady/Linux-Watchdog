@@ -11,6 +11,7 @@
 		<Relevance>unix of operating system</Relevance>
 		<Relevance>(operating system as string as lowercase contains "CentOS" as lowercase) OR (operating system as string as lowercase contains "Red Hat" as lowercase) OR (operating system as string as lowercase contains "RedHat" as lowercase) OR (operating system as string as lowercase contains "Debian" as lowercase) OR (operating system as string as lowercase contains "Ubuntu" as lowercase)</Relevance>
 		<Relevance>(exists file "/var/log/besclient_watchdog.log") OR (exists file "/var/log/besrelay_watchdog.log")</Relevance>
+		<Relevance>not exists file "/etc/logrotate.d/bes_watchdog.conf"</Relevance>
 		<Category>BigFix, Watchdog, Log, Maintenance</Category>
 		<Source>HCL BigFix Professional Services</Source>
 		<SourceID>casey.cannady@hcl.com</SourceID>
@@ -20,7 +21,7 @@
 		<SANSID></SANSID>
 		<MIMEField>
 			<Name>x-fixlet-modification-time</Name>
-			<Value>Tue, 06 Oct 2020 22:07:50 +0000</Value>
+			<Value>Wed, 28 Oct 2020 16:39:29 +0000</Value>
 		</MIMEField>
 		<Domain>BESC</Domain>
 		<DefaultAction ID="Action1">
@@ -34,7 +35,7 @@
 // *** Author        :: Casey Cannady (casey.cannady@hcl.com)                      ***
 // *** Company       :: HCL Software - BigFix Professional Services                ***
 // *** Date Created  :: 10/05/2020                                                 ***
-// *** Date Modified :: 10/06/2020                                                 ***
+// *** Date Modified :: 10/28/2020                                                 ***
 // *** *************************************************************************** ***
 
 // Good housekeeping
